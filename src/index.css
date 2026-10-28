@@ -1,0 +1,31 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+:root{--ink:11 16 32;--ink2:17 24 44;--line:38 48 74;--accent:56 189 248;--fg:226 232 240;--body:161 172 190}
+:root.light{--ink:248 250 252;--ink2:241 245 249;--line:203 213 225;--accent:3 105 161;--fg:15 23 42;--body:51 65 85}
+@layer base{
+ html{scroll-behavior:smooth;scroll-padding-top:5rem;color-scheme:dark}
+ html.light{color-scheme:light}
+ body{@apply bg-ink font-sans antialiased;color:rgb(var(--body))}
+ ::selection{background:rgb(var(--accent));color:rgb(var(--ink))}
+ :focus-visible{outline:2px solid rgb(var(--accent));outline-offset:3px}
+}
+@layer components{
+ .sec{@apply max-w-6xl mx-auto px-6 py-24 md:py-32}
+ .h2{@apply font-display text-4xl md:text-5xl font-bold text-white tracking-tight}
+ .btn{@apply inline-flex items-center gap-2 px-5 py-3 text-sm font-medium border border-ink-line text-white hover:border-lime hover:text-lime transition-colors disabled:opacity-60}
+ .btn-lime{@apply bg-lime text-ink border-lime hover:opacity-90}
+ .chip{@apply px-3 py-1.5 text-sm border border-ink-line text-zinc-300 transition-colors}
+ .chip[aria-pressed=true]{@apply bg-lime text-ink border-lime}
+ .inp{@apply w-full bg-transparent border-b border-ink-line py-3 text-white placeholder-zinc-600 focus:border-lime focus:outline-none}
+}
+html.light .text-white,html.light .btn,html.light .inp{color:rgb(var(--fg))}
+html.light .chip,html.light .text-zinc-300{color:rgb(var(--body))}
+html.light .text-zinc-500{color:#64748b}html.light .text-red-400{color:#b91c1c}
+html.light .btn:hover{color:rgb(var(--accent))}
+html.light .btn-lime,html.light .chip[aria-pressed=true]{color:rgb(var(--ink))}
+.btn-lime:hover{color:rgb(var(--ink))!important}
+.grid-bg{background-image:linear-gradient(rgb(var(--line)/.45) 1px,transparent 1px),linear-gradient(90deg,rgb(var(--line)/.45) 1px,transparent 1px);background-size:56px 56px}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
+.draw{stroke-dasharray:220;stroke-dashoffset:220;animation:draw 1.8s .15s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes ping2{75%,100%{transform:scale(2.4);opacity:0}}.ping2{animation:ping2 2s infinite}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.draw{stroke-dashoffset:0}}
