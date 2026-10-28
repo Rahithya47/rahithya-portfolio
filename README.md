@@ -6,7 +6,7 @@ I'm currently pursuing a B.Tech in Information Technology at Vignan's Foundation
 
 ## Live Website
 
-- **Portfolio:** https://rahithya-portfolio.vercel.app/
+- **Portfolio:** https://rahithya-portfolio-v3.vercel.app/
 - **GitHub:** https://github.com/Rahithya47
 - **LinkedIn:** https://www.linkedin.com/in/rahithya-kunisetty-2778342a3/
 - **LeetCode:** https://leetcode.com/u/cDYh7QJQnp/
